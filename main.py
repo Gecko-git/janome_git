@@ -13,6 +13,7 @@ s2 = input("> 品詞フィルター（例：名詞,一般）：")
 s3 = input("> しきい値（例：5）：")
 s4 = input("> クラスタ数（データ数以下）：")
 s5 = input("> 結果を表示するか(y/n)：")
+s6 = input("> 文字コード（例：cp932）：")
 
 if s5 == 'y':
 	printBool = True
@@ -30,7 +31,7 @@ cP_obj.cPrint(tNList)
 
 # テキストの読み込み＿（指定テキストのそれぞれの内容をリストで返す）
 print("●テキストの読み込み")
-gT_obj = tTAF.getTxt(tNList)
+gT_obj = tTAF.getTxt(tNList,s6)
 txtStrList = gT_obj.openTxtList()
 cP_obj.cPrint(txtStrList)
 

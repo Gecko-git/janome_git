@@ -20,16 +20,18 @@ class getReadTxtName():
 
 # テキストを取得
 class getTxt():
-	def __init__(self,tNL):
+	def __init__(self,tNL,characterCode):
 		self.tNL = tNL 
+		self.characterCode = characterCode
 
 	def openTxtList(self):
 		txtList = []
 
 		pB_obj = pB.progressBar(len(self.tNL))	#プログレスバーの表示[1]
 		
+
 		for i in self.tNL:
-			with open(i) as f:
+			with open(i, mode='r',encoding=self.characterCode) as f:
 				s = f.read()
 				txtList.append(s)
 			pB_obj.barCalc(self.tNL.index(i)+1)	#プログレスバーの表示[2]
