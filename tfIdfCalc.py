@@ -1,6 +1,7 @@
 # coding=utf-8
 from operator import itemgetter
 import math
+import gc
 
 import progressBar as pB
 
@@ -36,5 +37,10 @@ class tfIdfCalc():
 				resultList.append(subList)
 				subList=[]
 			pB_obj.barCalc(self.eSAF.index(i)+1)	#プログレスバーの表示[2]
+
+		#メモリ解放
+		del subList
+		del self.eSAF
+		gc.collect()
 
 		return resultList

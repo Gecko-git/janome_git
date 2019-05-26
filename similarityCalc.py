@@ -40,12 +40,11 @@ class similarityCalc():
 		ecList =[]
 		for i in self.tNL:
 			for j in self.tNL:
-				if len(self.tNL)-(self.tNL.index(i)+1) > self.tNL.index(j) :  #4以下のとき
+				if len(self.tNL)-(self.tNL.index(i)) > self.tNL.index(j) :  #4以下のとき
 					for k in self.tNL:
-						if self.tNL.index(i)+1 < self.tNL.index(k)+1:
-							euclidCalc = self.euclid(self.tNL.index(i)+1,self.tNL.index(k)+1)
-							cosineCalc = self.cosine(self.tNL.index(i)+1,self.tNL.index(k)+1)
+						if self.tNL.index(i) < self.tNL.index(k):
+							euclidCalc = self.euclid(self.tNL.index(i),self.tNL.index(k))
+							cosineCalc = self.cosine(self.tNL.index(i),self.tNL.index(k))
 							ecList.append([self.tNL.index(i),self.tNL.index(k),euclidCalc,cosineCalc])
 					break
-			print("\r{0}{1}".format(round(self.tNL.index(i)/len(self.tNL)*100,1),"%"), end="")
 		return ecList

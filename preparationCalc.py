@@ -16,13 +16,12 @@ class preparationCalc():
         elif len(self.tIL[0][0]) == 4:
             eNum = 3
 
-        #sameList.append(eachWord)  #これれ入れることによって文書と単語の行列を入れ替えできないから消した
+        #sameList.append(eachWord)  #これ入れることによって文書と単語の行列を入れ替えできないから消した
         for i in self.tIL:
             for j in self.tIL[self.tIL.index(i)]:
                 if eachWord == j[0]:
                     sameList.append(j[eNum])
                     break
-                    #print("これ同じなんじゃね",txtList[self.tIL.index(i)],j[0])
             else:
                 sameList.append(0)
 

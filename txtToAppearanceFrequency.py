@@ -49,9 +49,11 @@ class appearanceFrequency_count():
 
 		pB_obj = pB.progressBar(len(self.documentList))	#プログレスバーの表示[1]
 
+		fS = self.filter.split('_')
+
 		for i in self.documentList:
 			t = Tokenizer()
-			token_filters = [POSKeepFilter([self.filter]),TokenCountFilter(sorted=True)]
+			token_filters = [POSKeepFilter(fS),TokenCountFilter(sorted=True)]
 			analyzer = Analyzer([], t, token_filters)
 			tokens_count = [token for token in analyzer.analyze(i) if token[1] >= self.threshold]
 			aFList.append(tokens_count)
